@@ -5,7 +5,7 @@
 ## Overview of RNAchime
 
 <p align="center">
-  <img src="figs/overview.png" alt="RNAchime overview" width="60%">
+  <img src="figs/overview.png" alt="RNAchime overview" width="80%">
 </p>
 
 
@@ -200,6 +200,6 @@ The datasets provide four ligand representations:
 
 ## License and Disclaimer
 
-Original RNAchime contributions are licensed under the MIT License; third-party components remain subject to their applicable upstream terms. See [LICENSE](LICENSE) for details.
+Original RNAchime contributions are licensed under the GNU General Public License v3.0 or later (GPL-3.0-or-later); third-party components remain subject to their applicable upstream terms. See [LICENSE](LICENSE) for details.
 
-RNAchime is intended for scientific research and is not intended for clinical diagnosis or treatment. 
+RNAchime is intended solely for non-commercial scientific research and is not intended for clinical diagnosis or treatment.
