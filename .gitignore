@@ -4,8 +4,7 @@ __pycache__/
 .ipynb_checkpoints/
 .pytest_cache/
 
-# Generated evaluation outputs and runtime logs
-/outputs/
+# Runtime logs
 *.log
 events.out.tfevents.*
 
