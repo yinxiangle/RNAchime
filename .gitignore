@@ -1,0 +1,28 @@
+# Python caches and notebook checkpoints
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Generated evaluation outputs and runtime logs
+/outputs/
+*.log
+events.out.tfevents.*
+
+# Local environments and credentials
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Local editor and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Keep data/, results/ (including model checkpoints), figs/, and notebooks tracked.

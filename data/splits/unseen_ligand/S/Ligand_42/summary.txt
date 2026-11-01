@@ -1,0 +1,10 @@
+split_type: Ligand
+seed: 42
+n_graphs: 724
+n_groups: 159
+n_folds: 5
+fold_sizes: [145, 145, 145, 145, 144]
+fold_group_counts: [22, 33, 35, 35, 34]
+max_group_size: 118
+group_sizes: [118, 41, 33, 33, 26, 24, 20, 17, 17, 16, 13, 13, 13, 12, 10, 10, 10, 9, 9, 9, 9, 9, 8, 7, 7, 6, 6, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+fold_groups: [['PAR', 'ATP', 'TAC', '3AD', 'YO3', 'CLM', 'SJP', 'SFG', 'HJR', 'J8O', '4PQ', 'THF', '6MN', 'JJH', '62B', '3QB', 'O7S', 'FSJ', 'HMV', '1TU', 'OXV', 'ACA'], ['SPD', 'SAH', 'AM2', 'RIO', 'TPP', 'G6P', 'ACT', 'PO4', 'T1C', '4BW', 'SPS', 'SIN', 'EUS', 'HLV', 'D2X', '38E', 'YQM', 'BLS', 'N6E', 'HJO', 'HMT', 'EDO', 'DKM', 'HYG', '917', 'G19', 'FME', 'BFT', 'CTC', 'N30', 'J8L', 'V71', 'S81'], ['SAM', 'GET', 'GLP', 'V5Z', 'ADN', 'EKJ', '6HS', 'DAI', 'LLL', 'QSA', 'KAN', '2ZY', 'UG4', 'GDP', 'J0C', 'UG1', 'DGP', 'PYI', 'SS0', '95H', 'ACE', 'LC2', 'PCY', 'DMS', 'KSG', 'J8R', 'AMP', 'PPS', 'O8D', '6YG', '51B', 'DI0', 'SLD', 'WIN', 'G80'], ['2BA', 'NMY', 'SRY', 'SPM', 'G4P', 'NAD', 'PRP', 'CNY', 'J8F', 'B6M', 'QW4', '747', 'ADP', 'VIB', 'E7X', 'DSH', 'GMI', 'ANM', '5GP', '218', '3LK', 'N33', 'O8J', 'HMJ', 'MES', 'KWL', '3AT', 'MT9', 'CMG', 'NAI', 'HGR', 'EEM', 'J8X', 'KXC', 'TPS'], ['GTP', 'EOH', 'GNG', 'C2E', 'SIS', 'MTA', 'AMZ', 'V6T', 'HZG', 'AKN', 'ZLD', 'TOY', 'CBV', 'GOL', 'TFX', 'POH', 'EKM', 'FFO', 'HKO', 'J93', 'U7V', 'PUY', 'CLY', 'ZC0', 'CAC', 'G6M', 'PHA', 'J0D', 'G6V', 'J8U', 'VIR', 'MUL', 'SCM', 'RD8']]
