@@ -30,8 +30,10 @@ class Attributor(nn.Module):
             layers.append(nn.ReLU())
             layers.append(nn.Dropout(self.dropout))
         layers.append(nn.Linear(last_hidden, last))
-      
-
+        if last in (166, 1024, 2048):  # MACCS、FP2、Morgan
+            layers.append(nn.Sigmoid())
+        elif last == 512:             # Uni-Mol
+            layers.append(nn.Tanh())
         self.net = nn.Sequential(*layers)
 
     def forward(self, x):
@@ -159,8 +161,8 @@ def load_model(run,name,device='cpu'):
 
     model_dict = torch.load(f'{run}/{name}.pth', map_location='cpu')
     criterion_name = meta.get('criterion', 'HuberLoss').lower()
-    if criterion_name in {'bcewithlogitsloss', 'bcewithlogits', 'bceloss', 'bce'}:
-        criterion = torch.nn.BCEWithLogitsLoss(pos_weight=torch.tensor(meta.get('pos_weight', 1.0)))
+    if criterion_name in {'bceloss', 'bce'}:
+        criterion = torch.nn.BCELoss()
     elif criterion_name in {'huberloss', 'huber'}:
         criterion = torch.nn.HuberLoss(delta=meta.get('delta', 1.0))
     else:

@@ -34,8 +34,8 @@ def _compute_auc(y_true, y_pred):
 
 
 def _forward_loss(model, graph, fp):
-    if isinstance(model.criterion, torch.nn.BCEWithLogitsLoss) and not torch.all((fp >= 0) & (fp <= 1)):
-        raise ValueError('BCEWithLogitsLoss targets must be finite values in [0, 1].')
+    if isinstance(model.criterion, torch.nn.BCELoss) and not torch.all((fp >= 0) & (fp <= 1)):
+        raise ValueError('BCELoss targets must be finite values in [0, 1].')
     prediction, _ = model(graph)
     if prediction.shape != fp.shape:
         raise ValueError(f'Prediction shape {tuple(prediction.shape)} does not match target shape {tuple(fp.shape)}.')

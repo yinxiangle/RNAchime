@@ -33,16 +33,15 @@ def parse_args(argv=None):
     parser.add_argument('-hs', '--head_size', nargs='+', type=int, default=[32, 32, 32])
     parser.add_argument('-nh', '--num_heads', nargs='+', type=int, default=[1, 1, 1])
     parser.add_argument('-w', '--warm_start', help='Checkpoint used to initialize compatible embedding weights.')
-    parser.add_argument('-pw', '--pos_weight', type=float, default=1.0)
     parser.add_argument('-de', '--delta', type=float, default=1.0)
     parser.add_argument('-do', '--dropout', type=float, default=0.2)
     parser.add_argument('-po', '--pool', choices=['max', 'sum', 'att'], default='max')
-    parser.add_argument('-rs', '--seed', type=int, default=44, help='Positive seed for reproducibility; 0 disables fixed seeding.')
+    parser.add_argument('-rs', '--seed', type=int, default=11, help='Positive seed for reproducibility; 0 disables fixed seeding.')
     parser.add_argument('-kf', '--kfold', type=int, default=5, help='Number of folds; 0 or 1 uses an 80/20 split.')
     parser.add_argument('-es', '--early_stop', type=int, default=15)
     parser.add_argument('-lr', '--learning_rate', type=float, default=0.0005)
     parser.add_argument('-wd', '--weight_decay', type=float, default=0.00001)
-    parser.add_argument('-cr', '--criterion', default='HuberLoss', help='BCEWithLogitsLoss for fingerprints, HuberLoss for embeddings.')
+    parser.add_argument('-cr', '--criterion', default='HuberLoss', help='BCELoss for fingerprints, HuberLoss for embeddings.')
     parser.add_argument('--device', default='cuda:0', help='auto, cpu, or a CUDA device such as cuda:0.')
     parser.add_argument('--split_dir', help='External split directory or one split pickle file.')
     parser.add_argument('--run_label', help='Optional prefix for each run folder.')
@@ -62,6 +61,8 @@ def main(argv=None):
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu') if args.device == 'auto' else torch.device(args.device)
     if device.type == 'cuda' and (not torch.cuda.is_available() or (device.index or 0) >= torch.cuda.device_count()):
         raise ValueError(f'Requested CUDA device is unavailable: {device}')
+    if device.type == 'cuda':
+        torch.cuda.set_device(device)
     used_gpus_count = int(device.type == 'cuda')
     print('OPTIONS USED')
     print('\n'.join(f'{key}: {value}' for key, value in vars(args).items()))
@@ -82,8 +83,8 @@ def main(argv=None):
     criterion_name = args.criterion.strip().lower()
     if criterion_name in {'huberloss', 'huber'}:
         criterion = torch.nn.HuberLoss(delta=args.delta)
-    elif criterion_name in {'bcewithlogitsloss', 'bcewithlogits', 'bce'}:
-        criterion = torch.nn.BCEWithLogitsLoss(pos_weight=torch.tensor(args.pos_weight, device=device))
+    elif criterion_name in {'bceloss', 'bce'}:
+        criterion = torch.nn.BCELoss()
     else:
         raise ValueError(f'Unsupported criterion: {args.criterion}')
     args.criterion = criterion.__class__.__name__
